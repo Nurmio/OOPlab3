@@ -108,7 +108,54 @@ public class CarView extends JFrame{
             }
         });
 
-        // Make the frame pack all it's components by respecting the sizes if possible.
+        brakeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.brake(gasAmount);
+            }
+        });
+        //TODO
+        turboOnButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.turboOn(gasAmount);
+            }
+        });
+        //TODO
+        turboOffButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.turboOff(gasAmount);
+            }
+        });
+        //TODO
+        startButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.start(gasAmount);
+            }
+        });
+        //TODO
+        stopButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.stop(gasAmount);
+            }
+        });
+        //TODO
+        liftBedButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.liftBed(gasAmount);
+            }
+        });
+        //TODO
+        lowerBedButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.lowerBed(5);
+            }
+        });
         this.pack();
 
         // Get the computer screen resolution

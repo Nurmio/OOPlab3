@@ -26,6 +26,7 @@ public class Cartransport extends Vehicle {
         }
     }
 
+
     public boolean GetRampState() {
         return (RampIsUp);
     }
