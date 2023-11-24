@@ -21,7 +21,7 @@ public class CarController {
     // The frame that represents this instance View of the MVC pattern
     CarView frame;
     // A list of cars, modify if needed
-    ArrayList<Car> cars = new ArrayList<>();
+    ArrayList<Vehicle> Vehicles = new ArrayList<>();
 
     //methods:
 
@@ -29,10 +29,12 @@ public class CarController {
         // Instance of this class
         CarController cc = new CarController();
 
-        cc.cars.add(new Volvo240());
+        cc.Vehicles.add(new Volvo240());
+        cc.Vehicles.add(new Saab95());
+        cc.Vehicles.add(new Scania());
 
         // Start a new view and send a reference of self
-        cc.frame = new CarView("CarSim 1.0", cc);
+        cc.frame = new CarView("CarSim", cc);
 
         // Start the timer
         cc.timer.start();
@@ -43,11 +45,19 @@ public class CarController {
      * */
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            for (Car car : cars) {
-                car.move();
-                int x = (int) Math.round(car.getPos()[0]);
-                int y = (int) Math.round(car.getPos()[1]);
-                frame.drawPanel.moveit(x, y);
+            for (Vehicle vehicle : Vehicles) {
+                int x = (int) Math.round(vehicle.getPos()[0]);
+                int y = (int) Math.round(vehicle.getPos()[1]);
+                if (x>-1 && x+frame.drawPanel.getImageWidth(vehicle.getModelName())+10 < frame.getWidth()){
+                    vehicle.move();
+                    System.out.println(x);
+                    frame.drawPanel.moveit(x, y,vehicle.getDirection(),vehicle.getModelName());
+                }
+                else{
+                    vehicle.setDirection(vehicle.getOppsiteDirection());
+                    vehicle.move();
+                    frame.drawPanel.moveit(x,y,vehicle.getDirection(),vehicle.getModelName());
+                }
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.repaint();
             }
@@ -57,9 +67,43 @@ public class CarController {
     // Calls the gas method for each car once
     void gas(int amount) {
         double gas = ((double) amount) / 100;
-        for (Car car : cars
-        ) {
-            car.gas(gas);
-        }
+        for (Vehicle vehicle: Vehicles) {vehicle.gas(gas);}
     }
+    void brake(int amount){
+        double brake = ((double) amount) / 100;
+        for (Vehicle vehicle: Vehicles){vehicle.brake(brake);}
+    }
+    //TODO
+    void start(int amount){
+        double brake = ((double) amount) / 100;
+        for (Vehicle vehicle: Vehicles){vehicle.brake(brake);}
+    }
+    //TODO
+    void stop(int amount){
+        double brake = ((double) amount) / 100;
+        for (Vehicle vehicle: Vehicles){vehicle.brake(brake);}
+    }
+    //TODO
+    void turboOn(int amount){
+        double brake = ((double) amount) / 100;
+        for (Vehicle vehicle: Vehicles){vehicle.brake(brake);}
+    }
+    //TODO
+    void turboOff(int amount){
+        double brake = ((double) amount) / 100;
+        for (Vehicle vehicle: Vehicles){vehicle.brake(brake);}
+    }
+    //TODO
+    void liftBed(int amount){
+        double brake = ((double) amount) / 100;
+        for (Vehicle vehicle: Vehicles){vehicle.brake(brake);}
+    }
+    //TODO
+    void lowerBed(int amount){
+        double brake = ((double) amount) / 100;
+        for (Vehicle vehicle: Vehicles){vehicle.brake(brake);}
+    }
+
+
+
 }

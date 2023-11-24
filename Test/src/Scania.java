@@ -5,7 +5,7 @@ public class Scania extends Truck{
         setNrDoors(2);
         setColor(Color.red);
         setEnginePower(500);
-        setModelName("ScaniaTruck");
+        setModelName("Scania");
         setMaxAngle(70);
     }
 }

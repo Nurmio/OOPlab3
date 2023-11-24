@@ -2,7 +2,7 @@ import java.awt.*;
 
 public class Vehicle implements Movable{
     private double[] pos = new double[2];
-    private Direction direction = Direction.NORTH;
+    private Direction direction = Direction.EAST;
     private int nrDoors; // Number of doors on vehicle
     private double currentSpeed; // The current speed of the vehicle
     private double enginePower; // Engine power of the vehicle
@@ -23,6 +23,7 @@ public class Vehicle implements Movable{
     public Color getColor(){
         return color;
     }
+    public String getModelName(){return modelName;}
     protected void setColor(Color clr){
         color = clr;
     }
