@@ -23,15 +23,23 @@ public class CarController {
     // A list of cars, modify if needed
     ArrayList<Vehicle> Vehicles = new ArrayList<>();
 
+    Saab95 saab;
+    Volvo240 volvo;
+    Scania scania;
+
+
     //methods:
 
     public static void main(String[] args) {
         // Instance of this class
         CarController cc = new CarController();
+        cc.volvo = new Volvo240();
+        cc.saab = new Saab95();
+        cc.scania = new Scania();
 
-        cc.Vehicles.add(new Volvo240());
-        cc.Vehicles.add(new Saab95());
-        cc.Vehicles.add(new Scania());
+        cc.Vehicles.add(cc.volvo);
+        cc.Vehicles.add(cc.saab);
+        cc.Vehicles.add(cc.scania);
 
         // Start a new view and send a reference of self
         cc.frame = new CarView("CarSim", cc);
@@ -50,7 +58,6 @@ public class CarController {
                 int y = (int) Math.round(vehicle.getPos()[1]);
                 if (x>-1 && x+frame.drawPanel.getImageWidth(vehicle.getModelName())+10 < frame.getWidth()){
                     vehicle.move();
-                    System.out.println(x);
                     frame.drawPanel.moveit(x, y,vehicle.getDirection(),vehicle.getModelName());
                 }
                 else{
@@ -73,35 +80,28 @@ public class CarController {
         double brake = ((double) amount) / 100;
         for (Vehicle vehicle: Vehicles){vehicle.brake(brake);}
     }
-    //TODO
-    void start(int amount){
-        double brake = ((double) amount) / 100;
-        for (Vehicle vehicle: Vehicles){vehicle.brake(brake);}
+    void start(){
+
+        for (Vehicle vehicle: Vehicles){vehicle.startEngine();}
+    }
+    void stop(){
+        for (Vehicle vehicle: Vehicles){vehicle.stopEngine();}
     }
     //TODO
-    void stop(int amount){
-        double brake = ((double) amount) / 100;
-        for (Vehicle vehicle: Vehicles){vehicle.brake(brake);}
+    void turboOn(){
+        saab.setTurboOn();
     }
     //TODO
-    void turboOn(int amount){
-        double brake = ((double) amount) / 100;
-        for (Vehicle vehicle: Vehicles){vehicle.brake(brake);}
+    void turboOff(){
+        saab.setTurboOff();
     }
     //TODO
-    void turboOff(int amount){
-        double brake = ((double) amount) / 100;
-        for (Vehicle vehicle: Vehicles){vehicle.brake(brake);}
+    void liftBed(){
+        scania.setBedAngle(70);
     }
     //TODO
-    void liftBed(int amount){
-        double brake = ((double) amount) / 100;
-        for (Vehicle vehicle: Vehicles){vehicle.brake(brake);}
-    }
-    //TODO
-    void lowerBed(int amount){
-        double brake = ((double) amount) / 100;
-        for (Vehicle vehicle: Vehicles){vehicle.brake(brake);}
+    void lowerBed(){
+    scania.setBedAngle(0);
     }
 
 

@@ -118,42 +118,42 @@ public class CarView extends JFrame{
         turboOnButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.turboOn(gasAmount);
+                carC.turboOn();
             }
         });
         //TODO
         turboOffButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.turboOff(gasAmount);
+                carC.turboOff();
             }
         });
         //TODO
         startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.start(gasAmount);
+                carC.start();
             }
         });
         //TODO
         stopButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.stop(gasAmount);
+                carC.stop();
             }
         });
         //TODO
         liftBedButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.liftBed(gasAmount);
+                carC.liftBed();
             }
         });
         //TODO
         lowerBedButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.lowerBed(5);
+                carC.lowerBed();
             }
         });
         this.pack();
