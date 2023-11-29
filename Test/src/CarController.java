@@ -61,7 +61,7 @@ public class CarController {
                     frame.drawPanel.moveit(x, y,vehicle.getDirection(),vehicle.getModelName());
                 }
                 else{
-                    vehicle.setDirection(vehicle.getOppsiteDirection());
+                    vehicle.setDirection(vehicle.getOppositeDirection());
                     vehicle.move();
                     frame.drawPanel.moveit(x,y,vehicle.getDirection(),vehicle.getModelName());
                 }

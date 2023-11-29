@@ -199,7 +199,7 @@ public class Lab1Test {
         setTransport.LowerRamp();
         setTransport.LoadVehicle(setSaab);
         setTransport.UnloadVehicle();
-        assertEquals(setSaab.getDirection(), setTransport.getOppsiteDirection());
+        assertEquals(setSaab.getDirection(), setTransport.getOppositeDirection());
         assertNotEquals(setSaab.getPos(), setTransport.getPos());
     }
     @Test

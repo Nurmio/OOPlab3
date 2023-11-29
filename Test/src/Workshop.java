@@ -2,9 +2,9 @@ import java.util.ArrayList;
 
 public class Workshop<T extends Vehicle> {
     private final Loader loader;
-    private final double vehicleLimit;
+    private final int vehicleLimit;
 
-    public Workshop(double vehicleLimit) {
+    public Workshop(int vehicleLimit) {
         this.vehicleLimit = vehicleLimit;
         this.loader = new Loader();
     }

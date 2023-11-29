@@ -83,7 +83,7 @@ public class Vehicle implements Movable{
         direction = dir;
     }
 
-    public Direction getOppsiteDirection(){
+    public Direction getOppositeDirection(){
         return Direction.values()[(direction.ordinal()+2)%4];
     }
 

@@ -45,7 +45,7 @@ public class Cartransport extends Vehicle {
 
     public void UnloadVehicle() {
         if (!RampIsUp) {
-            loader.GetLastElement().setDirection(getOppsiteDirection());
+            loader.GetLastElement().setDirection(getOppositeDirection());
             loader.GetLastElement().move();
             loader.GetLoadList().remove(loader.GetLastElement());
         }
