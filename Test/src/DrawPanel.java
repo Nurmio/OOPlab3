@@ -27,7 +27,6 @@ public class DrawPanel extends JPanel{
     Direction saabDir;
     Direction scaniaDir;
 
-    // TODO: Make this general for all cars
     void moveit(int x, int y,Direction dir, String modelName){
         switch (modelName){
             case "Saab95":
