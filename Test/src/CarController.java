@@ -74,14 +74,13 @@ public class CarController {
     // Calls the gas method for each car once
     void gas(int amount) {
         double gas = ((double) amount) / 100;
-        for (Vehicle vehicle: Vehicles) {vehicle.gas(gas);}
+        for (Vehicle vehicle: Vehicles) {if(vehicle.getCurrentSpeed() < vehicle.getEnginePower()){vehicle.gas(gas);}}
     }
     void brake(int amount){
         double brake = ((double) amount) / 100;
         for (Vehicle vehicle: Vehicles){vehicle.brake(brake);}
     }
     void start(){
-
         for (Vehicle vehicle: Vehicles){vehicle.startEngine();}
     }
     void stop(){

@@ -9,6 +9,7 @@ public class Vehicle implements Movable{
     private Color color; // Color of the vehicle
     private String modelName; // The vehicle model name
     private boolean drivable = true;
+    private boolean engineOn = false;
 
     public int getNrDoors(){
         return nrDoors;
@@ -31,17 +32,13 @@ public class Vehicle implements Movable{
     protected void setEnginePower(double engPow){enginePower = engPow;}
     protected void setModelName(String Mdlname){modelName = Mdlname;}
     protected void setDrivable(Boolean s){drivable = s;}
-    public void startEngine(){if(drivable){currentSpeed = 0.1;}}
-    public void stopEngine(){
-        currentSpeed = 0;
-    }
+    public void startEngine(){if(drivable){currentSpeed = 0.1;engineOn=true;}}
+    public void stopEngine(){currentSpeed = 0;engineOn = false;}
     private void incrementSpeed(double amount){
         currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount,enginePower);
-        //SAAB was missing math.min()
     }
     private void decrementSpeed(double amount){
         currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount,0);
-        //SAAB was missing math.max()
     }
 
     public double[] getPos(){
@@ -51,8 +48,6 @@ public class Vehicle implements Movable{
         pos[0] = x;
         pos[1] = y;
     }
-    //int[] pos = new int[2];
-
     public void move(){
         switch(direction){
             case NORTH:
@@ -88,16 +83,9 @@ public class Vehicle implements Movable{
     }
 
     public double getDeltaPos(Vehicle vehicle){
-        //Pythagorean Theorem
-        return Math.pow(Math.pow(getPos()[0] - vehicle.getPos()[0],2) + Math.pow(getPos()[1] - vehicle.getPos()[1],2), 0.5);
+        return Math.pow(Math.pow(pos[0] - vehicle.getPos()[0],2) + Math.pow(pos[1] - vehicle.getPos()[1],2), 0.5);
     }
-    public void gas(double amount){
-        incrementSpeed(Math.min(Math.abs(amount),1));
-    }
-    public void brake(double amount){
-        decrementSpeed(Math.max(amount,0));
-    }
-    double speedFactor(){
-        return enginePower * 0.01;
-    }
+    public void gas(double amount){if(engineOn){incrementSpeed(Math.min(Math.abs(amount),1));}}
+    public void brake(double amount){decrementSpeed(Math.max(amount,0));}
+    double speedFactor(){return enginePower * 0.01;}
 }
