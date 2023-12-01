@@ -20,7 +20,7 @@ public class Vehicle implements Movable{
     public double getCurrentSpeed(){
         return currentSpeed;
     }
-    public Boolean getIfDrivable(){return drivable;}
+    public boolean getIfDrivable(){return drivable;}
     public Color getColor(){
         return color;
     }

@@ -86,19 +86,15 @@ public class CarController {
     void stop(){
         for (Vehicle vehicle: Vehicles){vehicle.stopEngine();}
     }
-    //TODO
     void turboOn(){
         saab.setTurboOn();
     }
-    //TODO
     void turboOff(){
         saab.setTurboOff();
     }
-    //TODO
     void liftBed(){
         scania.setBedAngle(70);
     }
-    //TODO
     void lowerBed(){
     scania.setBedAngle(0);
     }
