@@ -69,7 +69,7 @@ public class Lab1Test {
 
     @Test
     public void TestVolvoSpeedFactorWhileStandingStill(){
-        assertTrue(String.valueOf(0.01*setVolvo.getEnginePower()*setVolvo.getTrimFactor()),setVolvo.speedFactor() == 0.01*setVolvo.getEnginePower()*setVolvo.getTrimFactor());
+        assertTrue(String.valueOf(0.01*setVolvo.getEnginePower()* Volvo240.trim.getFactor()),setVolvo.speedFactor() == 0.01*setVolvo.getEnginePower()* Volvo240.trim.getFactor());
     }
     @Test
     public void TestSaabSpeedFactorWhileStandingStill(){
