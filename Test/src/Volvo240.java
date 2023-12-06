@@ -1,7 +1,7 @@
 import java.awt.*;
 
 public class Volvo240 extends Car {
-    static Trim trim;
+    private Trim trim;
 
 
     public Volvo240() {
@@ -16,4 +16,7 @@ public class Volvo240 extends Car {
         return getEnginePower() * 0.01 * trim.getFactor();
     }
 
+    public double getTrimFactor() {
+        return trim.getFactor();
+    }
 }

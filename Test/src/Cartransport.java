@@ -73,20 +73,18 @@ public class Cartransport extends Vehicle {
         return loader.GetLoadList().size();
     }
 
-    @Override
     public void turnRight() {
-        super.turnRight();
+        super.styrIT.turnRight();
         for (Vehicle v : loader.GetLoadList()) {
-            v.turnRight();
+            v.styrIT.turnRight();
         }
 
     }
 
-    @Override
     public void turnLeft() {
-        super.turnLeft();
+        super.styrIT.turnLeft();
         for (Vehicle v : loader.GetLoadList()) {
-            v.turnLeft();
+            v.styrIT.turnLeft();
         }
 
     }

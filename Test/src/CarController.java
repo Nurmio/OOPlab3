@@ -75,11 +75,11 @@ public class CarController {
     // Calls the gas method for each car once
     void gas(int amount) {
         double gas = ((double) amount) / 100;
-        for (Vehicle vehicle: Vehicles) {if(vehicle.getCurrentSpeed() < vehicle.getEnginePower()){vehicle.gas(gas);}}
+        for (Vehicle vehicle: Vehicles) {if(vehicle.getCurrentSpeed() < vehicle.getEnginePower()){vehicle.styrIT.gas(gas);}}
     }
     void brake(int amount){
         double brake = ((double) amount) / 100;
-        for (Vehicle vehicle: Vehicles){vehicle.brake(brake);}
+        for (Vehicle vehicle: Vehicles){vehicle.styrIT.brake(brake);}
     }
     void start(){
         for (Vehicle vehicle: Vehicles){vehicle.startEngine();}
@@ -97,7 +97,7 @@ public class CarController {
         scania.setBedAngle(70);
     }
     void lowerBed(){
-    scania.setBedAngle(0);
+        scania.setBedAngle(0);
     }
 
 

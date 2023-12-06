@@ -46,7 +46,7 @@ public class Lab1Test {
     }
     @Test
     public void TestTurningLeft(){
-        setSaab.turnLeft();
+        setSaab.styrIT.turnLeft();
         assertTrue("dir: "+ setSaab.getDirection(),setSaab.getDirection() == Direction.WEST);
     }
     @Test
@@ -69,7 +69,7 @@ public class Lab1Test {
 
     @Test
     public void TestVolvoSpeedFactorWhileStandingStill(){
-        assertTrue(String.valueOf(0.01*setVolvo.getEnginePower()* Volvo240.trim.getFactor()),setVolvo.speedFactor() == 0.01*setVolvo.getEnginePower()* Volvo240.trim.getFactor());
+        assertTrue(String.valueOf(0.01*setVolvo.getEnginePower()* setVolvo.getTrimFactor()),setVolvo.speedFactor() == 0.01*setVolvo.getEnginePower()* setVolvo.getTrimFactor());
     }
     @Test
     public void TestSaabSpeedFactorWhileStandingStill(){
@@ -79,28 +79,28 @@ public class Lab1Test {
     @Test
     public void TestGas(){
         setSaab.startEngine();
-        setSaab.gas(1);
+        setSaab.styrIT.gas(1);
         assertTrue(setSaab.getCurrentSpeed() > 0.1);
     }
     @Test
     public void TestBreak(){
         setSaab.startEngine();
-        setSaab.gas(1);
-        setSaab.gas(1);
-        setSaab.brake(1);
-        setSaab.brake(1);
+        setSaab.styrIT.gas(1);
+        setSaab.styrIT.gas(1);
+        setSaab.styrIT.brake(1);
+        setSaab.styrIT.brake(1);
         assertTrue(""+setSaab.getCurrentSpeed(), 0.09<= setSaab.getCurrentSpeed() && setSaab.getCurrentSpeed() <= 0.11);
     }
 
     @Test
     public void TestMovesToStartingPos(){
         setSaab.startEngine();
-        setSaab.gas(1);
+        setSaab.styrIT.gas(1);
         for (int i = 0; i < 4; i++) {
             setSaab.move();
             setSaab.styrIT.turnRight();
         }
-        setSaab.brake(1);
+        setSaab.styrIT.brake(1);
         for (int i = 0; i < 4; i++) {
             setSaab.move();
             setSaab.styrIT.turnLeft();

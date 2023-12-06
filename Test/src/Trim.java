@@ -4,5 +4,5 @@ public class Trim {
         trimFactor = Factor;
     }
 
-    public double getFactor(){return trimFactor;}
+    protected double getFactor(){return trimFactor;}
 }
