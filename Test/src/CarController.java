@@ -28,10 +28,11 @@ public class CarController {
     Scania scania;
 
 
-    //methods:
+    //METHODS:
 
     public static void main(String[] args) {
-        // Instance of this class
+        // Instance of this
+
         CarController cc = new CarController();
         cc.volvo = new Volvo240();
         cc.saab = new Saab95();

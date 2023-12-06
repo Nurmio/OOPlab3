@@ -11,10 +11,10 @@ public class Vehicle implements Movable{
     private boolean drivable = true;
     private boolean engineOn = false;
 
-    public int getNrDoors(){
+public int getNrDoors(){
         return nrDoors;
-    }
-    public double getEnginePower(){
+        }
+public double getEnginePower(){
         return enginePower;
     }
     public double getCurrentSpeed(){
@@ -23,23 +23,16 @@ public class Vehicle implements Movable{
     public boolean getIfDrivable(){return drivable;}
     public Color getColor(){
         return color;
-    }
-    public String getModelName(){return modelName;}
-    protected void setColor(Color clr){
+        }
+public String getModelName(){return modelName;}
+protected void setColor(Color clr){
         color = clr;
-    }
-    protected void setNrDoors(int NrDoors){nrDoors = NrDoors;}
-    protected void setEnginePower(double engPow){enginePower = engPow;}
-    protected void setModelName(String Mdlname){modelName = Mdlname;}
-    protected void setDrivable(Boolean s){drivable = s;}
-    public void startEngine(){if(drivable){currentSpeed = 0.1;engineOn=true;}}
-    public void stopEngine(){currentSpeed = 0;engineOn = false;}
-    private void incrementSpeed(double amount){
-        currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount,enginePower);
-    }
-    private void decrementSpeed(double amount){
-        currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount,0);
-    }
+        }
+protected void setNrDoors(int NrDoors){nrDoors = NrDoors;}
+protected void setEnginePower(double engPow){enginePower = engPow;}
+protected void setModelName(String Mdlname){modelName = Mdlname;}
+protected void setDrivable(Boolean s){drivable = s;}
+
 
     public double[] getPos(){
         return pos;
@@ -82,10 +75,11 @@ public class Vehicle implements Movable{
         return Direction.values()[(direction.ordinal()+2)%4];
     }
 
-    public double getDeltaPos(Vehicle vehicle){
-        return Math.pow(Math.pow(pos[0] - vehicle.getPos()[0],2) + Math.pow(pos[1] - vehicle.getPos()[1],2), 0.5);
-    }
-    public void gas(double amount){if(engineOn){incrementSpeed(Math.min(Math.abs(amount),1));}}
-    public void brake(double amount){decrementSpeed(Math.max(amount,0));}
-    double speedFactor(){return enginePower * 0.01;}
-}
+public double getDeltaPos(Vehicle vehicle){
+        return Math.pow(Math.pow(styrIT.getPos()[0] - vehicle.styrIT.getPos()[0],2)
+                + Math.pow(styrIT.getPos()[1] - vehicle.styrIT.getPos()[1],2), 0.5);
+        }
+        //public void gas(double amount){if(engineOn){incrementSpeed(Math.min(Math.abs(amount),1));}}
+        //public void brake(double amount){decrementSpeed(Math.max(amount,0));}
+        double speedFactor(){return enginePower * 0.01;}
+        }

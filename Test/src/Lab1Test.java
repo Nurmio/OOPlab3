@@ -51,7 +51,7 @@ public class Lab1Test {
     }
     @Test
     public void TestTurningRight(){
-        setSaab.turnRight();
+        setSaab.styrIT.turnRight();
         assertTrue("dir: " + setSaab.getDirection(),setSaab.getDirection() == Direction.EAST);
 
     }
@@ -98,12 +98,12 @@ public class Lab1Test {
         setSaab.gas(1);
         for (int i = 0; i < 4; i++) {
             setSaab.move();
-            setSaab.turnRight();
+            setSaab.styrIT.turnRight();
         }
         setSaab.brake(1);
         for (int i = 0; i < 4; i++) {
             setSaab.move();
-            setSaab.turnLeft();
+            setSaab.styrIT.turnLeft();
         }
         assertTrue(setSaab.getPos()[0] == 0 && setSaab.getPos()[1] == 0);
 
@@ -160,14 +160,14 @@ public class Lab1Test {
     public void TestTransportTurnRight(){
         setTransport.LowerRamp();
         setTransport.LoadVehicle(setSaab);
-        setTransport.turnRight();
+        setTransport.styrIT.turnRight();
         assertEquals(setSaab.getDirection(), setTransport.getDirection());
     }
     @Test
     public void TestTransportTurnLeft(){
         setTransport.LowerRamp();
         setTransport.LoadVehicle(setSaab);
-        setTransport.turnLeft();
+        setTransport.styrIT.turnLeft();
         assertEquals(setSaab.getDirection(), setTransport.getDirection());
     }
     @Test
