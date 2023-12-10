@@ -11,8 +11,8 @@ private int nrDoors; // Number of doors on vehicle
 //private double enginePower; // Engine power of the vehicle
 private Color color; // Color of the vehicle
 private String modelName; // The vehicle model name
-private boolean drivable = true;
-private boolean engineOn = false;
+//private boolean drivable = true;
+//private boolean engineOn = false;
 
 //public Vehicle(){this.styrIT = new StyrIT();}
 
@@ -23,8 +23,7 @@ public int getNrDoors(){
 public double getEnginePower(){
         return styrIT.getEnginePower();
         }
-
-public boolean getIfDrivable(){return drivable;}
+public boolean getIfDrivable(){return styrIT.getIfDriveable();}
 public Color getColor(){
         return color;
         }
@@ -37,8 +36,9 @@ protected void setEnginePower(double engPow){styrIT.setEnginePower(engPow);}
 protected void setModelName(String Mdlname){modelName = Mdlname;}
 protected void setDrivable(Boolean s){styrIT.setDrivable(s);}
 
-public void move() {styrIT.move();}
+//public void move() {styrIT.move();}
 
+        /*
 public Direction getDirection() { return styrIT.getDirection();}
 public double getCurrentSpeed(){return styrIT.getCurrentSpeed();}
 public void setPos(double x,double y){styrIT.setPos(x,y);}
@@ -47,6 +47,8 @@ public void stopEngine() {styrIT.stopEngine();}
 public void startEngine() {styrIT.stopEngine();}
 public void setDirection(Direction dir){styrIT.setDirection(dir);}
 public Direction getOppositeDirection(){return styrIT.getOppositeDirection();}
+*/
+
 
 public double getDeltaPos(Vehicle vehicle){
         return Math.pow(Math.pow(styrIT.getPos()[0] - vehicle.styrIT.getPos()[0],2)

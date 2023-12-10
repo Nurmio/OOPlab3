@@ -45,17 +45,17 @@ public class Cartransport extends Vehicle {
 
     public void UnloadVehicle() {
         if (!RampIsUp) {
-            loader.GetLastElement().setDirection(getOppositeDirection());
-            loader.GetLastElement().move();
+            loader.GetLastElement().styrIT.setDirection(styrIT.getOppositeDirection());
+            loader.GetLastElement().styrIT.move();
             loader.GetLoadList().remove(loader.GetLastElement());
         }
     }
 
     private void updateLoadCarPos() {
         for (Vehicle v : loader.GetLoadList()) {
-            switch(getDirection()){
+            switch(styrIT.getDirection()){
                 case NORTH:
-                    v.setPos(v.getPos()[0],v.getPos()[1]+=getCurrentSpeed());
+                    v.styrIT.setPos(v.styrIT.getPos()[0],v.styrIT.getPos()[1]+=styrIT.getCurrentSpeed());
                     break;
                 case EAST:
                     v.styrIT.setPos(v.styrIT.getPos()[0]+=styrIT.getCurrentSpeed(),v.styrIT.getPos()[1]);
@@ -64,7 +64,7 @@ public class Cartransport extends Vehicle {
                     v.styrIT.setPos(v.styrIT.getPos()[0],v.styrIT.getPos()[1]-=styrIT.getCurrentSpeed());
                     break;
                 case WEST:
-                    v.setPos(v.getPos()[0]+=getCurrentSpeed(),v.getPos()[1]);
+                    v.styrIT.setPos(v.styrIT.getPos()[0]+=styrIT.getCurrentSpeed(),v.styrIT.getPos()[1]);
                     break;
             }
         }
@@ -89,9 +89,9 @@ public class Cartransport extends Vehicle {
 
     }
 
-    @Override
+
     public void move() {
         updateLoadCarPos();
-        super.move();
+        super.styrIT.move();
     }
 }

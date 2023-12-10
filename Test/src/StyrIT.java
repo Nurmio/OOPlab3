@@ -13,6 +13,7 @@ public class StyrIT implements Movable {
         return currentSpeed;
     }
 
+    protected boolean getIfDriveable() {return drivable; }
     protected double[] getPos(){
         return pos;
     }
@@ -68,4 +69,8 @@ public class StyrIT implements Movable {
 
     protected void startEngine(){if(drivable){currentSpeed = 0.1;engineOn=true;}}
     protected void stopEngine(){currentSpeed = 0;engineOn = false;}
+
+
+
+
 }

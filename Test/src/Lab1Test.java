@@ -102,7 +102,7 @@ public class Lab1Test {
         }
         setSaab.styrIT.brake(1);
         for (int i = 0; i < 4; i++) {
-            setSaab.move();
+            setSaab.styrIT.move();
             setSaab.styrIT.turnLeft();
         }
         assertTrue(setSaab.styrIT.getPos()[0] == 0 && setSaab.styrIT.getPos()[1] == 0);
