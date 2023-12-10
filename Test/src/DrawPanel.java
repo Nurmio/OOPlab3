@@ -19,6 +19,9 @@ public class DrawPanel extends JPanel{
     BufferedImage flippedSaabImage;
     BufferedImage flippedScaniaImage;
 
+    BufferedImage AppIcon;
+
+
     // To keep track of a single cars position
     Point volvoPoint = new Point();
     Point SaabPoint = new Point();
@@ -68,6 +71,7 @@ public class DrawPanel extends JPanel{
             flippedVolvoImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/volvo240Flipped.png"));
             flippedSaabImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Saab95Flipped.png"));
             flippedScaniaImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/ScaniaFlipped.png"));
+            AppIcon = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Icon.jpg"));
         } catch (IOException ex)
         {
             ex.printStackTrace();

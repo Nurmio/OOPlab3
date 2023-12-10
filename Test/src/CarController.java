@@ -2,6 +2,9 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+import java.awt.*;
 
 /*
  * This class represents the Controller part in the MVC pattern.
@@ -47,6 +50,55 @@ public class CarController {
 
         // Start the timer
         cc.timer.start();
+        cc.frame.gasButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cc.gas(cc.frame.gasAmount);
+            }
+        });
+        cc.frame.brakeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cc.brake(cc.frame.gasAmount);
+            }
+        });
+        cc.frame.turboOnButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cc.turboOn();
+            }
+        });
+        cc.frame.turboOffButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cc.turboOff();
+            }
+        });
+        cc.frame.startButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cc.start();
+            }
+        });
+        cc.frame.stopButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cc.stop();
+            }
+        });
+        cc.frame.liftBedButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cc.liftBed();
+            }
+        });
+        cc.frame.lowerBedButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cc.lowerBed();
+            }
+        });
+
     }
 
     /* Each step the TimerListener moves all the cars in the list and tells the
@@ -55,16 +107,16 @@ public class CarController {
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             for (Vehicle vehicle : Vehicles) {
-                int x = (int) Math.round(vehicle.getPos()[0]);
-                int y = (int) Math.round(vehicle.getPos()[1]);
+                int x = (int) Math.round(vehicle.styrIT.getPos()[0]);
+                int y = (int) Math.round(vehicle.styrIT.getPos()[1]);
                 if (x>-1 && x+frame.drawPanel.getImageWidth(vehicle.getModelName())+10 < frame.getWidth()){
-                    vehicle.move();
-                    frame.drawPanel.moveit(x, y,vehicle.getDirection(),vehicle.getModelName());
+                    vehicle.styrIT.move();
+                    frame.drawPanel.moveit(x, y,vehicle.styrIT.getDirection(),vehicle.getModelName());
                 }
                 else{
-                    vehicle.setDirection(vehicle.getOppositeDirection());
-                    vehicle.move();
-                    frame.drawPanel.moveit(x,y,vehicle.getDirection(),vehicle.getModelName());
+                    vehicle.styrIT.setDirection(vehicle.styrIT.getOppositeDirection());
+                    vehicle.styrIT.move();
+                    frame.drawPanel.moveit(x,y,vehicle.styrIT.getDirection(),vehicle.getModelName());
                 }
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.repaint();
@@ -75,17 +127,17 @@ public class CarController {
     // Calls the gas method for each car once
     void gas(int amount) {
         double gas = ((double) amount) / 100;
-        for (Vehicle vehicle: Vehicles) {if(vehicle.getCurrentSpeed() < vehicle.getEnginePower()){vehicle.styrIT.gas(gas);}}
+        for (Vehicle vehicle: Vehicles) {if(vehicle.styrIT.getCurrentSpeed() < vehicle.getEnginePower()){vehicle.styrIT.gas(gas);}}
     }
     void brake(int amount){
         double brake = ((double) amount) / 100;
         for (Vehicle vehicle: Vehicles){vehicle.styrIT.brake(brake);}
     }
     void start(){
-        for (Vehicle vehicle: Vehicles){vehicle.startEngine();}
+        for (Vehicle vehicle: Vehicles){vehicle.styrIT.startEngine();}
     }
     void stop(){
-        for (Vehicle vehicle: Vehicles){vehicle.stopEngine();}
+        for (Vehicle vehicle: Vehicles){vehicle.styrIT.stopEngine();}
     }
     void turboOn(){
         saab.setTurboOn();

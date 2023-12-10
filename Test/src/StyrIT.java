@@ -16,9 +16,20 @@ public class StyrIT implements Movable {
     protected double[] getPos(){
         return pos;
     }
-    protected void setPos(double x, double y) {
-        pos[0] = x;
-        pos[1] = y;}
+    protected int getDirectionInt(){return direction.ordinal();}
+    protected Direction getDirection() {return direction;}
+    protected Direction getOppositeDirection(){
+        return Direction.values()[(direction.ordinal()+2)%4];
+    }
+    public double getEnginePower(){
+        return enginePower;
+    }
+    protected void setPos(double x, double y) {pos[0] = x; pos[1] = y;}
+    protected void setEnginePower(double engPow){enginePower = engPow;}
+    protected void setDrivable(Boolean s){drivable = s;}
+    protected void setDirection(Direction dir){
+        direction = dir;
+    }
 
     public void move() {
         switch(direction){
@@ -38,26 +49,12 @@ public class StyrIT implements Movable {
     }
 
 
-
-
     public void turnLeft(){
         direction = Direction.values()[((((getDirectionInt()-1) % 4) + 4) % 4)];
     }
     public void turnRight(){
         direction = Direction.values()[(getDirectionInt() +1)%4];
     }
-
-    protected int getDirectionInt(){return direction.ordinal();}
-    protected Direction getDirection() {return direction;}
-
-    protected void setDirection(Direction dir){
-        direction = dir;
-    }
-
-    protected Direction getOppositeDirection(){
-        return Direction.values()[(direction.ordinal()+2)%4];
-    }
-
     protected void gas(double amount){if(engineOn){incrementSpeed(Math.min(Math.abs(amount),1));}}
     protected void brake(double amount){decrementSpeed(Math.max(amount,0));}
 
@@ -67,7 +64,6 @@ public class StyrIT implements Movable {
     private void decrementSpeed(double amount){
         currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount,0);
     }
-
     double speedFactor(){return enginePower * 0.01;}
 
     protected void startEngine(){if(drivable){currentSpeed = 0.1;engineOn=true;}}

@@ -15,7 +15,7 @@ public class Cartransport extends Vehicle {
     private boolean RampIsUp = true;
 
     public void LowerRamp() {
-        if (RampIsUp && getCurrentSpeed() == 0) {
+        if (RampIsUp && styrIT.getCurrentSpeed() == 0) {
             RampIsUp = false;
         }
     }
@@ -36,8 +36,8 @@ public class Cartransport extends Vehicle {
 
             if (!RampIsUp && getDeltaPos(vehicle) <= 3) {
                 loader.LoadVehicle(vehicle);
-                vehicle.setPos(getPos()[0], getPos()[1]);
-                vehicle.setDirection((getDirection()));
+                vehicle.styrIT.setPos(styrIT.getPos()[0], styrIT.getPos()[1]);
+                vehicle.styrIT.setDirection((styrIT.getDirection()));
             }
         }
 
@@ -58,10 +58,10 @@ public class Cartransport extends Vehicle {
                     v.setPos(v.getPos()[0],v.getPos()[1]+=getCurrentSpeed());
                     break;
                 case EAST:
-                    v.setPos(v.getPos()[0]+=getCurrentSpeed(),v.getPos()[1]);
+                    v.styrIT.setPos(v.styrIT.getPos()[0]+=styrIT.getCurrentSpeed(),v.styrIT.getPos()[1]);
                     break;
                 case SOUTH:
-                    v.setPos(v.getPos()[0],v.getPos()[1]-=getCurrentSpeed());
+                    v.styrIT.setPos(v.styrIT.getPos()[0],v.styrIT.getPos()[1]-=styrIT.getCurrentSpeed());
                     break;
                 case WEST:
                     v.setPos(v.getPos()[0]+=getCurrentSpeed(),v.getPos()[1]);
