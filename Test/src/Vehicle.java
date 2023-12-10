@@ -44,7 +44,7 @@ public double getCurrentSpeed(){return styrIT.getCurrentSpeed();}
 public void setPos(double x,double y){styrIT.setPos(x,y);}
 public double[] getPos(){return styrIT.getPos();}
 public void stopEngine() {styrIT.stopEngine();}
-public void startEngine() {styrIT.stopEngine();}
+public void startEngine() {styrIT.startEngine();}
 public void setDirection(Direction dir){styrIT.setDirection(dir);}
 public Direction getOppositeDirection(){return styrIT.getOppositeDirection();}
 */
