@@ -36,19 +36,6 @@ protected void setEnginePower(double engPow){styrIT.setEnginePower(engPow);}
 protected void setModelName(String Mdlname){modelName = Mdlname;}
 protected void setDrivable(Boolean s){styrIT.setDrivable(s);}
 
-//public void move() {styrIT.move();}
-
-        /*
-public Direction getDirection() { return styrIT.getDirection();}
-public double getCurrentSpeed(){return styrIT.getCurrentSpeed();}
-public void setPos(double x,double y){styrIT.setPos(x,y);}
-public double[] getPos(){return styrIT.getPos();}
-public void stopEngine() {styrIT.stopEngine();}
-public void startEngine() {styrIT.startEngine();}
-public void setDirection(Direction dir){styrIT.setDirection(dir);}
-public Direction getOppositeDirection(){return styrIT.getOppositeDirection();}
-*/
-
 
 public double getDeltaPos(Vehicle vehicle){
         return Math.pow(Math.pow(styrIT.getPos()[0] - vehicle.styrIT.getPos()[0],2)
