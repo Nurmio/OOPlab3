@@ -29,15 +29,23 @@ public class CarView extends JFrame{
     int gasAmount = 0;
     JLabel gasLabel = new JLabel("Amount of gas");
 
-    public JButton gasButton = new JButton("Gas");
-    public JButton brakeButton = new JButton("Brake");
-    public JButton turboOnButton = new JButton("Saab Turb on");
-    public JButton turboOffButton = new JButton("Saab Turbo off");
-    public JButton liftBedButton = new JButton("Scania Lift Bed");
-    public JButton lowerBedButton = new JButton("Lower Lift Bed");
+    private JButton gasButton = new JButton("Gas");
+    public JButton getGasButton(){return gasButton;}
+    private JButton brakeButton = new JButton("Brake");
+    public JButton getBrakeButton(){return brakeButton;}
+    private JButton turboOnButton = new JButton("Saab Turb on");
+    public JButton getTurboOnButton(){return turboOnButton;}
+    private JButton turboOffButton = new JButton("Saab Turbo off");
+    public JButton getTurboOffButton(){return turboOffButton;}
+    private JButton liftBedButton = new JButton("Scania Lift Bed");
+    public JButton getliftBedButton(){return liftBedButton;}
+    private JButton lowerBedButton = new JButton("Lower Lift Bed");
+    public JButton getlowerBedButton(){return lowerBedButton;}
+    private  JButton startButton = new JButton("Start all cars");
+    public JButton getstartButton(){return startButton;}
 
-    public  JButton startButton = new JButton("Start all cars");
-    public JButton stopButton = new JButton("Stop all cars");
+    private JButton stopButton = new JButton("Stop all cars");
+    public JButton getstopButton(){return stopButton;}
 
     // Constructor
     public CarView(String framename){
