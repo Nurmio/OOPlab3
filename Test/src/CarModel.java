@@ -1,5 +1,3 @@
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class CarModel {
     public static void main(String[] args) {
@@ -16,54 +14,14 @@ public class CarModel {
         // Start the timer
         cc.timer.start();
 //region buttons
-        cc.frame.gasButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                cc.gas(cc.frame.gasAmount);
-            }
-        });
-        cc.frame.brakeButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                cc.brake(cc.frame.gasAmount);
-            }
-        });
-        cc.frame.turboOnButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                cc.turboOn();
-            }
-        });
-        cc.frame.turboOffButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                cc.turboOff();
-            }
-        });
-        cc.frame.startButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                cc.start();
-            }
-        });
-        cc.frame.stopButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                cc.stop();
-            }
-        });
-        cc.frame.liftBedButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                cc.liftBed();
-            }
-        });
-        cc.frame.lowerBedButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                cc.lowerBed();
-            }
-        });
+        cc.frame.gasButton.addActionListener(e -> cc.gas(cc.frame.gasAmount));
+        cc.frame.brakeButton.addActionListener(e -> cc.brake(cc.frame.gasAmount));
+        cc.frame.turboOnButton.addActionListener(e -> cc.turboOn());
+        cc.frame.turboOffButton.addActionListener(e -> cc.turboOff());
+        cc.frame.startButton.addActionListener(e -> cc.start());
+        cc.frame.stopButton.addActionListener(e -> cc.stop());
+        cc.frame.liftBedButton.addActionListener(e -> cc.liftBed());
+        cc.frame.lowerBedButton.addActionListener(e -> cc.lowerBed());
 //endregion
     }
 }
