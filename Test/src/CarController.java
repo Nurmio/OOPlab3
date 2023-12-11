@@ -43,6 +43,20 @@ public class CarController {
         }
     }
 
+    //region buttons
+
+   public void initButtons() {
+       frame.getGasButton().addActionListener(e -> gas(frame.gasAmount));
+       frame.getBrakeButton().addActionListener(e -> brake(frame.gasAmount));
+       frame.getTurboOnButton().addActionListener(e -> turboOn());
+       frame.getTurboOffButton().addActionListener(e -> turboOff());
+       frame.getstartButton().addActionListener(e -> start());
+       frame.getstopButton().addActionListener(e -> stop());
+       frame.getliftBedButton().addActionListener(e -> liftBed());
+       frame.getlowerBedButton().addActionListener(e -> lowerBed());
+   }
+//endregion
+
     // Functionality for the buttons
     void gas(int amount) {
         double gas = ((double) amount) / 100;
