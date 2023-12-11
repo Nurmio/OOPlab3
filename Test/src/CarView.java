@@ -2,8 +2,7 @@ import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 
 /**
  * This class represents the full view of the MVC pattern of your car simulator.
@@ -33,8 +32,9 @@ public class CarView extends JFrame{
     public JButton getGasButton(){return gasButton;}
     private JButton brakeButton = new JButton("Brake");
     public JButton getBrakeButton(){return brakeButton;}
+
     private JButton turboOnButton = new JButton("Saab Turb on");
-    public JButton getTurboOnButton(){return turboOnButton;}
+    public JButton getTurboOnButton(){return turboOnButton; }
     private JButton turboOffButton = new JButton("Saab Turbo off");
     public JButton getTurboOffButton(){return turboOffButton;}
     private JButton liftBedButton = new JButton("Scania Lift Bed");

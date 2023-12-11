@@ -1,1 +1,3 @@
-Uppgift 2:
+factory
+observer
+state

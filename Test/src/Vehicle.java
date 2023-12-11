@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public class Vehicle{
+public abstract class Vehicle{
 
 protected StyrIT styrIT = new StyrIT();
 
