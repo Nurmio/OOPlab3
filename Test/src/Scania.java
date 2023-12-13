@@ -8,14 +8,5 @@ public class Scania extends Truck{
         setColor(Color.red);
         setEnginePower(500);
         setModelName("Scania");
-        setMaxAngle(70);
-        try {
-            sprite.Img = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Scania.png"));
-            sprite.FlippedImg = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/ScaniaFlipped.png"));
-        }
-        catch (IOException ex)
-        {
-            ex.printStackTrace();
-        }
     }
 }

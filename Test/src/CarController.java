@@ -7,9 +7,9 @@
 public class CarController{
 
     // The frame that represents this instance View of the MVC pattern
-    CarView frame;
-    GameManager gm;
-    final int MAXVEHICLESALLOWED = 10;
+    private CarView frame;
+    private GameManager gm;
+    private final int MAXVEHICLESALLOWED = 10;
     public void OnStart(){
         initButtons();
         for (Vehicle v : gm.getVehicles()) {
@@ -17,10 +17,7 @@ public class CarController{
         }
     }
     public void update(){
-
             frame.drawPanel.moveit(gm.getVehicles());
-     //   }
-        //frame.drawPanel.repaint();
     }
 
    public void initButtons() {
@@ -95,6 +92,12 @@ public class CarController{
         if (!gm.getVehicles().isEmpty()) {
             gm.getVehicles().removeLast();
         }
+    }
+    public void setFrame(String frameName){
+        frame = new CarView(frameName);
+    }
+    public CarView getFrame(){
+        return frame;
     }
 //endregion
 public CarController(GameManager gm){

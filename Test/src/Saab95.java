@@ -11,9 +11,6 @@ public class Saab95 extends Car{
         setColor(Color.red);
         setEnginePower(125);
         setModelName("Saab95");
-        try{sprite.Img = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Saab95.png"));
-            sprite.FlippedImg = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Saab95Flipped.png"));}
-        catch(IOException ex){ex.printStackTrace();}
     }
     public void setTurboOn(){
         turbo.TurboOn();
