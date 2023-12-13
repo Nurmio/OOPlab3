@@ -1,6 +1,8 @@
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
-public abstract class Vehicle{
+public class Vehicle{
 
 protected StyrIT styrIT = new StyrIT();
 protected Sprite sprite = new Sprite();
@@ -15,6 +17,16 @@ private String modelName; // The vehicle model name
 //private boolean engineOn = false;
 
 //public Vehicle(){this.styrIT = new StyrIT();}
+
+private final List<GameManagerObserver> observers = new ArrayList<>();
+public void addObserver(GameManagerObserver o) { observers.add(o); }
+public void removeObserver(GameManagerObserver o) { observers.remove(o); }
+
+private void multicastStatusChange() {
+        for (GameManagerObserver o : observers) {
+               o.OnGameManagerChange();
+        }
+}
 
 
 public int getNrDoors(){

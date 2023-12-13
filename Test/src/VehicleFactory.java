@@ -1,6 +1,6 @@
 public class VehicleFactory {
-    public static Volvo240 createVolvo() { return new Volvo240(); }
-    public static Saab95 createSaab() { return new Saab95(); }
+    private static Volvo240 createVolvo() { return new Volvo240(); }
+    private static Saab95 createSaab() { return new Saab95(); }
 
     private static Scania createScania() { return new Scania(); }
 

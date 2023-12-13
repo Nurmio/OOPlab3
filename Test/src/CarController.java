@@ -78,8 +78,23 @@ public class CarController{
                 ((Scania) v).setBedAngle(0);
             }}
     }
-    public CarController(GameManager gm){
-        this.gm = gm;
+
+    void addVehicle(String modelName) {
+        if (gm.getVehicles().size() < MAXVEHICLESALLOWED) {
+            Vehicle v = VehicleFactory.createVehicle(modelName);
+            int nrOfVehicles = gm.getVehicles().size();
+            final int DISTBETWEENVEHICLES = 50;
+            double x = v.styrIT.getPos()[0];
+            double y = v.styrIT.getPos()[1];
+            v.styrIT.setPos(x, y + DISTBETWEENVEHICLES * nrOfVehicles);
+            gm.getVehicles().add(v);
+        }
+    }
+
+    void removeVehicle(){
+        if (!gm.getVehicles().isEmpty()) {
+            gm.getVehicles().removeLast();
+        }
     }
 //endregion
 public CarController(GameManager gm){
