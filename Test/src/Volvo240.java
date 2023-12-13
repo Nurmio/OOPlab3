@@ -1,4 +1,7 @@
+import javax.imageio.ImageIO;
 import java.awt.*;
+import java.io.IOException;
+import java.util.Objects;
 
 public class Volvo240 extends Car {
     private Trim trim;
@@ -10,6 +13,10 @@ public class Volvo240 extends Car {
         setColor(Color.black);
         setEnginePower(100);
         setModelName("Volvo240");
+        try {
+            this.sprite.Img = ImageIO.read(Objects.requireNonNull(DrawPanel.class.getResourceAsStream("pics/Volvo240.png")));
+            this.sprite.FlippedImg = ImageIO.read(Objects.requireNonNull(DrawPanel.class.getResourceAsStream("pics/volvo240Flipped.png")));
+        } catch (IOException ex) {ex.printStackTrace();}
     }
 
     @Override double speedFactor()  {

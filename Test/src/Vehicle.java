@@ -3,7 +3,7 @@ import java.awt.*;
 public abstract class Vehicle{
 
 protected StyrIT styrIT = new StyrIT();
-
+protected Sprite sprite = new Sprite();
 //private double[] pos = new double[2];
 //private Direction direction = Direction.EAST;
 private int nrDoors; // Number of doors on vehicle
@@ -35,7 +35,6 @@ protected void setNrDoors(int NrDoors){nrDoors = NrDoors;}
 protected void setEnginePower(double engPow){styrIT.setEnginePower(engPow);}
 protected void setModelName(String Mdlname){modelName = Mdlname;}
 protected void setDrivable(Boolean s){styrIT.setDrivable(s);}
-
 
 public double getDeltaPos(Vehicle vehicle){
         return Math.pow(Math.pow(styrIT.getPos()[0] - vehicle.styrIT.getPos()[0],2)

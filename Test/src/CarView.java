@@ -1,6 +1,4 @@
 import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import java.awt.*;
 
 
@@ -24,27 +22,31 @@ public class CarView extends JFrame{
     JPanel controlPanel = new JPanel();
 
     JPanel gasPanel = new JPanel();
+//region Buttons, Spinners, Textfields, etc...
     JSpinner gasSpinner = new JSpinner();
+    JTextField VehicleTextField = new JTextField(1);
+    JTextField getVehicleTextField(){return VehicleTextField;}
     int gasAmount = 0;
     JLabel gasLabel = new JLabel("Amount of gas");
+    JLabel VehicleLabel = new JLabel("Which car: ");
 
-    private JButton gasButton = new JButton("Gas");
+    private final JButton gasButton = new JButton("Gas");
     public JButton getGasButton(){return gasButton;}
-    private JButton brakeButton = new JButton("Brake");
+    private final JButton brakeButton = new JButton("Brake");
     public JButton getBrakeButton(){return brakeButton;}
 
-    private JButton turboOnButton = new JButton("Saab Turb on");
+    private final JButton turboOnButton = new JButton("Saab Turbo on");
     public JButton getTurboOnButton(){return turboOnButton; }
-    private JButton turboOffButton = new JButton("Saab Turbo off");
+    private final JButton turboOffButton = new JButton("Saab Turbo off");
     public JButton getTurboOffButton(){return turboOffButton;}
-    private JButton liftBedButton = new JButton("Scania Lift Bed");
+    private final JButton liftBedButton = new JButton("Scania Lift Bed");
     public JButton getliftBedButton(){return liftBedButton;}
-    private JButton lowerBedButton = new JButton("Lower Lift Bed");
+    private final JButton lowerBedButton = new JButton("Lower Lift Bed");
     public JButton getlowerBedButton(){return lowerBedButton;}
-    private  JButton startButton = new JButton("Start all cars");
+    private final JButton startButton = new JButton("Start all cars");
     public JButton getstartButton(){return startButton;}
 
-    private JButton stopButton = new JButton("Stop all cars");
+    private final JButton stopButton = new JButton("Stop all cars");
     public JButton getstopButton(){return stopButton;}
 
     // Constructor
@@ -53,7 +55,6 @@ public class CarView extends JFrame{
     }
 
     // Sets everything in place and fits everything
-    // TODO: Take a good look and make sure you understand how these methods and components work
     private void initComponents(String title) {
 
         this.setTitle(title);
@@ -62,23 +63,20 @@ public class CarView extends JFrame{
 
         this.add(drawPanel);
 
-
-
         SpinnerModel spinnerModel =
-                new SpinnerNumberModel(0, //initial value
+                new SpinnerNumberModel(
+                        0, //initial value
                         0, //min
                         100, //max
                         1);//step
         gasSpinner = new JSpinner(spinnerModel);
-        gasSpinner.addChangeListener(new ChangeListener() {
-            public void stateChanged(ChangeEvent e) {
-                gasAmount = (int) ((JSpinner)e.getSource()).getValue();
-            }
-        });
+        gasSpinner.addChangeListener(e -> gasAmount = (int) ((JSpinner)e.getSource()).getValue());
 
-        gasPanel.setLayout(new BorderLayout());
+        gasPanel.setLayout(new GridLayout(2,1));
         gasPanel.add(gasLabel, BorderLayout.PAGE_START);
         gasPanel.add(gasSpinner, BorderLayout.PAGE_END);
+        gasPanel.add(VehicleLabel, BorderLayout.PAGE_START);
+        gasPanel.add(VehicleTextField, BorderLayout.PAGE_END);
 
         this.add(gasPanel); 
 
@@ -90,24 +88,23 @@ public class CarView extends JFrame{
         controlPanel.add(brakeButton, 3);
         controlPanel.add(turboOffButton, 4);
         controlPanel.add(lowerBedButton, 5);
+        controlPanel.add(addVehicleButton, 6);
+        controlPanel.add(removeVehicleButton, 7);
         controlPanel.setPreferredSize(new Dimension((X/2)+4, 200));
         this.add(controlPanel);
-        controlPanel.setBackground(Color.CYAN);
 
 
         startButton.setBackground(Color.blue);
         startButton.setForeground(Color.green);
-        startButton.setPreferredSize(new Dimension(X/5-15,200));
+        startButton.setPreferredSize(new Dimension(X/6-18,200));
         this.add(startButton);
 
 
         stopButton.setBackground(Color.red);
         stopButton.setForeground(Color.black);
-        stopButton.setPreferredSize(new Dimension(X/5-15,200));
+        stopButton.setPreferredSize(new Dimension(X/6-18,200));
         this.add(stopButton);
 
-        // This actionListener is for the gas button only
-        // TODO: Create more for each component as necessary
 
         this.pack();
         // Get the computer screen resolution
