@@ -3,7 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class CarApplication implements GameManagerObserver{
+public class CarApplication {
     public static void main(String[] args) {
         ArrayList<Vehicle> Vehicles = new ArrayList<>();
         GameManager gm = new GameManager(Vehicles);
@@ -27,8 +27,5 @@ public class CarApplication implements GameManagerObserver{
         Timer timer = new Timer(50, new updateAll());
         timer.start();
     }
-    @Override
-    public void OnGameManagerChange() {
 
-    }
 }

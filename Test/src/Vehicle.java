@@ -4,30 +4,15 @@ import java.util.List;
 
 public class Vehicle{
 
-protected StyrIT styrIT = new StyrIT();
-protected Sprite sprite = new Sprite();
-//private double[] pos = new double[2];
-//private Direction direction = Direction.EAST;
+protected StyrIT styrIT;
+
+public Vehicle() { this.styrIT = new StyrIT(); }
+
+
 private int nrDoors; // Number of doors on vehicle
-//private double currentSpeed; // The current speed of the vehicle
-//private double enginePower; // Engine power of the vehicle
+
 private Color color; // Color of the vehicle
 private String modelName; // The vehicle model name
-//private boolean drivable = true;
-//private boolean engineOn = false;
-
-//public Vehicle(){this.styrIT = new StyrIT();}
-
-private final List<GameManagerObserver> observers = new ArrayList<>();
-public void addObserver(GameManagerObserver o) { observers.add(o); }
-public void removeObserver(GameManagerObserver o) { observers.remove(o); }
-
-private void multicastStatusChange() {
-        for (GameManagerObserver o : observers) {
-               o.OnGameManagerChange();
-        }
-}
-
 
 public int getNrDoors(){
         return nrDoors;
@@ -52,7 +37,6 @@ public double getDeltaPos(Vehicle vehicle){
         return Math.pow(Math.pow(styrIT.getPos()[0] - vehicle.styrIT.getPos()[0],2)
                 + Math.pow(styrIT.getPos()[1] - vehicle.styrIT.getPos()[1],2), 0.5);
         }
-        //public void gas(double amount){if(engineOn){incrementSpeed(Math.min(Math.abs(amount),1));}}
-        //public void brake(double amount){decrementSpeed(Math.max(amount,0));}
+
         double speedFactor(){return styrIT.speedFactor() * 0.01;}
         }
