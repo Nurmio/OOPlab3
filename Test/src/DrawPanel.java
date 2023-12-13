@@ -11,12 +11,12 @@ import javax.swing.*;
 public class DrawPanel extends JPanel{
 
     BufferedImage AppIcon;
-    ArrayList<Point> points = new ArrayList<Point>();
-    ArrayList<BufferedImage> images = new ArrayList<BufferedImage>();
+    ArrayList<Point> points = new ArrayList<>();
+    ArrayList<BufferedImage> images = new ArrayList<>();
 
     void moveit(ArrayList<Vehicle> Vehicles){
-        points = new ArrayList<Point>();
-        images = new ArrayList<BufferedImage>();
+        points = new ArrayList<>();
+        images = new ArrayList<>();
         for (Vehicle v: Vehicles) {
             points.add(new Point((int) Math.round(v.styrIT.getPos()[0]), (int) Math.round(v.styrIT.getPos()[1])));
             if(v.styrIT.getDirection()== Direction.EAST){images.add(v.sprite.Img);}

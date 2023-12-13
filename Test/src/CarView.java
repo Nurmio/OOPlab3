@@ -20,8 +20,6 @@ public class CarView extends JFrame {
 
     JPanel controlPanel = new JPanel();
 
-    Vehicle vehicle = new Vehicle();
-
     JPanel gasPanel = new JPanel();
 //region Buttons, Spinners, Textfields, etc...
     JSpinner gasSpinner = new JSpinner();
