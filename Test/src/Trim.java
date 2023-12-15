@@ -1,8 +1,8 @@
 public class Trim {
     private final double trimFactor;
     public Trim(double Factor) {
-        trimFactor = Factor;
+        this.trimFactor = Factor;
     }
 
-    protected double getFactor(){return trimFactor;}
+    protected double getFactor(){return this.trimFactor;}
 }

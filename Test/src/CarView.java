@@ -52,7 +52,7 @@ public class CarView extends JFrame {
 
     public void addLiftBedButtonListener(ActionListener al){liftBedButton.addActionListener(al);}
     private final JButton lowerBedButton = new JButton("Lower Lift Bed");
-    public JButton getlowerBedButton(){return lowerBedButton;}
+    public void addLowerBedButtonListener(ActionListener al){lowerBedButton.addActionListener(al);}
     private final JButton startButton = new JButton("Start all cars");
     public void addStartButtonListener(ActionListener al){startButton.addActionListener(al);}
 

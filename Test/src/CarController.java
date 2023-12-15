@@ -30,8 +30,8 @@ public class CarController{
        frame.addStartButtonListener(e->start());
        frame.addStopButtonListener(e->stop());
 
-       frame.getliftBedButton().addActionListener(e -> liftBed());
-       frame.getlowerBedButton().addActionListener(e -> lowerBed());
+       frame.addLiftBedButtonListener(e -> liftBed());
+       frame.addLowerBedButtonListener(e -> lowerBed());
    }
 //region Functionality for the buttons
     void gas(int amount) {
