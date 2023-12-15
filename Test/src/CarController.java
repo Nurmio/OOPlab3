@@ -13,25 +13,22 @@ public class CarController{
     public void OnStart(){
         initButtons();
         for (Vehicle v : gm.getVehicles()) {
-            frame.drawPanel.moveit(gm.getVehicles());
+            frame.moveIT(gm.getVehicles());
         }
-    }
-    public void update(){
-            frame.drawPanel.moveit(gm.getVehicles());
     }
 
    public void initButtons() {
-       frame.getGasButton().addActionListener(e -> gas(frame.gasAmount));
-       frame.getBrakeButton().addActionListener(e -> brake(frame.gasAmount));
+       frame.addGasButtonListener(e -> gas(frame.gasAmount));
+       frame.addBrakeButtonListener(e -> brake(frame.gasAmount));
 
-       frame.getaddVehicleButton().addActionListener(e -> addVehicle(frame.getVehicleTextField().getText()));
-       frame.getremoveVehicleButton().addActionListener(e -> removeVehicle());
+       frame.addAddVehicleButtonListener(e -> addVehicle(frame.vehicleName()));
+       frame.addRemoveButtonListener(e -> removeVehicle());
 
-       frame.getTurboOnButton().addActionListener(e -> turboOn());
-       frame.getTurboOffButton().addActionListener(e -> turboOff());
+       frame.addTurboOnButtonListener(e -> turboOn());
+       frame.addTurboOffButtonListener(e -> turboOff());
 
-       frame.getstartButton().addActionListener(e -> start());
-       frame.getstopButton().addActionListener(e -> stop());
+       frame.addStartButtonListener(e->start());
+       frame.addStopButtonListener(e->stop());
 
        frame.getliftBedButton().addActionListener(e -> liftBed());
        frame.getlowerBedButton().addActionListener(e -> lowerBed());
@@ -93,14 +90,9 @@ public class CarController{
             gm.getVehicles().removeLast();
         }
     }
-    public void setFrame(String frameName){
-        frame = new CarView(frameName);
-    }
-    public CarView getFrame(){
-        return frame;
-    }
 //endregion
-public CarController(GameManager gm){
+public CarController(GameManager gm, CarView cv){
     this.gm = gm;
+    this.frame = cv;
 }
 }

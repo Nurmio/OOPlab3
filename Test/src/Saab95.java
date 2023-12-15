@@ -5,6 +5,10 @@ import java.io.IOException;
 public class Saab95 extends Car{
     private final Turbo turbo;
 
+    public Turbo getTurbo() {
+        return turbo;
+    }
+
     public Saab95(){
         this.turbo = new Turbo();
         setNrDoors(2);

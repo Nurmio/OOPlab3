@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 
 /**
@@ -16,7 +18,10 @@ public class CarView extends JFrame {
     // The controller member
     //CarController carC;
 
-    DrawPanel drawPanel = new DrawPanel(X, Y-240);
+    private DrawPanel drawPanel = new DrawPanel(X, Y-240);
+    public void setIMGWIDTH(int width){drawPanel.setIMGWIDTH(width);}
+    public void initImages(){drawPanel.initImages();}
+    public void moveIT(ArrayList<Vehicle> v){drawPanel.moveit(v);}
 
     JPanel controlPanel = new JPanel();
 
@@ -24,33 +29,40 @@ public class CarView extends JFrame {
 //region Buttons, Spinners, Textfields, etc...
     JSpinner gasSpinner = new JSpinner();
     JTextField VehicleTextField = new JTextField(1);
-    JTextField getVehicleTextField(){return VehicleTextField;}
+    String vehicleName(){return VehicleTextField.getText();}
     int gasAmount = 0;
     JLabel gasLabel = new JLabel("Amount of gas");
     JLabel VehicleLabel = new JLabel("Which car: ");
 
     private final JButton gasButton = new JButton("Gas");
     public JButton getGasButton(){return gasButton;}
+    public void addGasButtonListener(ActionListener al){gasButton.addActionListener(al);}
     private final JButton brakeButton = new JButton("Brake");
     public JButton getBrakeButton(){return brakeButton;}
-
+    public void addBrakeButtonListener(ActionListener al){brakeButton.addActionListener(al);}
     private final JButton turboOnButton = new JButton("Saab Turbo on");
     public JButton getTurboOnButton(){return turboOnButton; }
+    public void addTurboOnButtonListener(ActionListener al){turboOnButton.addActionListener(al);}
+
+
+
     private final JButton turboOffButton = new JButton("Saab Turbo off");
-    public JButton getTurboOffButton(){return turboOffButton;}
+    public void addTurboOffButtonListener(ActionListener al){turboOffButton.addActionListener(al);}
     private final JButton liftBedButton = new JButton("Scania Lift Bed");
-    public JButton getliftBedButton(){return liftBedButton;}
+
+    public void addLiftBedButtonListener(ActionListener al){liftBedButton.addActionListener(al);}
     private final JButton lowerBedButton = new JButton("Lower Lift Bed");
     public JButton getlowerBedButton(){return lowerBedButton;}
     private final JButton startButton = new JButton("Start all cars");
-    public JButton getstartButton(){return startButton;}
+    public void addStartButtonListener(ActionListener al){startButton.addActionListener(al);}
 
     private final JButton stopButton = new JButton("Stop all cars");
-    public JButton getstopButton(){return stopButton;}
+    public void addStopButtonListener(ActionListener al){stopButton.addActionListener(al);}
     private final JButton addVehicleButton = new JButton("Add car");
-    public JButton getaddVehicleButton(){return addVehicleButton;}
+    public void addAddVehicleButtonListener(ActionListener al){addVehicleButton.addActionListener(al);}
     private final JButton removeVehicleButton = new JButton("Remove car");
-    public JButton getremoveVehicleButton(){return removeVehicleButton;}
+    public void addRemoveButtonListener(ActionListener al){removeVehicleButton.addActionListener(al);}
+
 //endregion
 
     // Constructor
@@ -108,8 +120,7 @@ public class CarView extends JFrame {
         stopButton.setForeground(Color.black);
         stopButton.setPreferredSize(new Dimension(X/6-18,200));
         this.add(stopButton);
-
-
+        
         this.pack();
         // Get the computer screen resolution
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();

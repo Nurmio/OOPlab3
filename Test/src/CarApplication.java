@@ -7,21 +7,25 @@ public class CarApplication {
     public static void main(String[] args) {
         ArrayList<Vehicle> Vehicles = new ArrayList<>();
         GameManager gm = new GameManager(Vehicles);
-        CarController cc = new CarController(gm);
+        CarView cv = new CarView("BRum");
+        CarController cc = new CarController(gm,cv);
         cc.addVehicle("Volvo240");
         cc.addVehicle("Saab95");
         cc.addVehicle("Scania");
-        // Start a new view and send a reference of self
-        cc.setFrame("BRum");
-        cc.getFrame().drawPanel.setIMGWIDTH(gm.getConstImageWidth());
-        cc.getFrame().drawPanel.initImages();
+        cv.setIMGWIDTH(gm.getConstImageWidth());
+        cv.initImages();
         cc.OnStart();
         // Start the timer
 
          class updateAll implements ActionListener {
             public void actionPerformed(ActionEvent e){
-                cc.getFrame().drawPanel.moveit(gm.getVehicles());
+                cv.moveIT(gm.getVehicles());
                 gm.updateModel();
+
+                for (Vehicle v : gm.getVehicles()){
+                    System.out.println(v.getModelName() + " " + v.styrIT.speedFactor());
+                }
+
             }
         }
         Timer timer = new Timer(50, new updateAll());
